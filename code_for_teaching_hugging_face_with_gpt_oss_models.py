@@ -40,8 +40,8 @@ huggingface_key = os.environ["HF_TOKEN"]
 
 # Below uses novita as the provider. Change the model as you like.
 
-# model="openai/gpt-oss-20b:novita"
-model="openai/gpt-oss-120b:novita"
+model="openai/gpt-oss-20b:novita"
+# model="openai/gpt-oss-120b:novita"
 
 
 #prompt = """Teach me how to start a successful email list for free from scratch. I will post videos on YouTube and other platforms
@@ -78,21 +78,24 @@ llm_output = completion.choices[0].message.content
 print(llm_output)
 
 
-# # write output to a file
-# with open("llm_output.md", "w") as file:
-#     file.write(llm_output)
+# simple way to write output to a file
+with open("llm_output.md", "w") as file:
+    file.write(llm_output)
 
 # write output to a file
 # I add the model and current datetime. Modify this as you like
 
 
+# more complicated way, but more useful output name
+
+# write output to a file
 # Get current date and time in the format YYYY_MM_DD_HH_MM_SS
-current_datetime = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+# current_datetime = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
 
-output_file_name = f'{model}_{current_datetime}_output.md'
-# replace /, :, and - with _
-replacements = str.maketrans({":": "_", "/": "_", "-": "_"})
-output_file_name = output_file_name.translate(replacements)
+# output_file_name = f'{model}_{current_datetime}_output.md'
+# # replace /, :, and - with _
+# replacements = str.maketrans({":": "_", "/": "_", "-": "_"})
+# output_file_name = output_file_name.translate(replacements)
 
-with open(output_file_name, "w") as file:
-    file.write(llm_output)
+# with open(output_file_name, "w") as file:
+#     file.write(llm_output)
