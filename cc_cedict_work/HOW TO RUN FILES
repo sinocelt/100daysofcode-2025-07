@@ -1,0 +1,55 @@
+# run the python file to build the database
+python3 build_cedict_db.py --input current_cc-cedict.txt --db cedict.sqlite
+
+
+# MAKE SURE THE DATABASE IS CREATED FIRST WITH PYTHON ABOVE
+
+# RUNNING QUERIES with SQLITE
+# You can run sqlite directly to run direct SQL queries
+sqlite3 cedict.sqlite
+
+
+-- Example 1
+SELECT COUNT(*) AS entries FROM entries;
+
+-- Example 2. Search for rows where the Chinese pinyin is xue2 xi2.
+-- Pinyin (numeric tones)
+SELECT trad, simp, pinyin_num, defs_joined
+FROM entries
+WHERE pinyin_num LIKE 'xue2 xi2';
+
+
+-- Example 3. Search for examples where there is 'computer' in the definition
+SELECT trad, simp, definition
+FROM definitions
+WHERE definition LIKE '%computer%'
+LIMIT 20;
+
+
+-- example 4. Search for examples where there is 'computer' in the definition, and make sure you query pinyin_num too
+SELECT trad, simp, pinyin_num, definition
+FROM definitions
+WHERE definition LIKE '%computer%'
+LIMIT 20;
+
+# search by traditional
+-- example 5
+SELECT pinyin_num, trad, simp, definition
+FROM definitions
+WHERE trad = '你好';
+
+-- ouptut might be
+-- ni3 hao3|你好|你好|hello; hi
+
+
+-- Example 6. Note that "no tone" uses the number 5.
+-- search for rows with wo3 men5 (should mean "we")
+
+sqlite> SELECT trad, simp, pinyin_num, defs_joined
+FROM entries
+WHERE pinyin_num LIKE 'wo3 men5';
+-- it should look something like
+-- 我們|我们|wo3 men5|we; us; ourselves; our
+
+
+
