@@ -111,15 +111,36 @@ The general form of a link in Markdown is like below:
 jack-o-lantern emoji 🎃 [Alt text](the_url)
 
 For example:
-jack-o-lantern emoji 🎃 [jack-o-lantern emoji](https://emojipedia.org/jack-o-lantern)
+jack-o-lantern emoji 🎃 ```[jack-o-lantern emoji](https://emojipedia.org/jack-o-lantern)```
 
 This part of markdown corresponds roughly to anchor tags in HTML
 
 ## Image links
 The general form of an image n Markdown is like below:  
-jack-o-lantern emoji 🎃 [Alt text](the_url)
+jack-o-lantern emoji 🎃 ```[Alt text](the_url)```
+
+The main difference between a general link and an image link is that an image link starts with "!"
 
 For example:
-jack-o-lantern emoji 🎃 [jack-o-lantern emoji](https://emojipedia.org/jack-o-lantern)
+Image from Pexels:  
+jack-o-lantern with image 🎃 ![jack-o-lantern emoji](https://images.pexels.com/photos/236277/pexels-photo-236277.jpeg)
 
-This part of markdown corresponds roughly to anchor tags in HTML
+This corresponds roughly to `<img>` tags in HTML
+
+
+# Block Quotes
+
+You just need to start a line or paragraph (without extra empty lines in between) with ">" symbol
+
+For example
+Quoting from Shakespeare's Hamlet:
+
+>To be, or not to be, that is the question:
+Whether ’tis nobler in the mind to suffer
+The slings and arrows of outrageous fortune,
+Or to take arms against a sea of troubles,
+And by opposing end them? To die—to sleep,
+No more; and by a sleep to say we end
+The heart-ache, and the thousand natural shocks
+That flesh is heir to: ’tis a consummation
+Devoutly to be wish’d.
