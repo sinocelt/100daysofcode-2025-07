@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "mastodon": "^1.2.2"
+  }
+}
